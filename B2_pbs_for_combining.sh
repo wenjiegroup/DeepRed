@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#PBS -N lf3426_MATLAB 
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=240:00:00
+#PBS -q batch2	#  batch2 or bigmem2 or batch1
+#PBS -k oe
+
+########### INIT ###########
+# enable module tool 
+# source /etc/profile.d/*.sh    
+
+# set workdir
+WORKDIR=/public2/home/liufeng/Work/RNA_editing_2015-11/Identification/Codes_and_Data_of_DeepRed
+########### RUN ###########
+cd $WORKDIR
+#start application and log output using 'tee' in myapp_mpi.log
+
+/opt/software/matlab/bin/matlab -nodisplay -nosplash  -r 'B2_combine_individual_classifier( $type, $cell, $range, [1000 100], 50, 20, 250000  );exit'
+
+########### CLEAN UP ###########
+# rm -rf *.tmp
