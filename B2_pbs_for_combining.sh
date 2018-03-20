@@ -11,12 +11,13 @@
 # source /etc/profile.d/*.sh    
 
 # set workdir
-WORKDIR=/public2/home/liufeng/Work/RNA_editing_2015-11/Identification/Codes_and_Data_of_DeepRed
+##please change the directory to the location in your system
+WORKDIR=Workdir_of_DeepRed
 ########### RUN ###########
 cd $WORKDIR
 #start application and log output using 'tee' in myapp_mpi.log
 
-/opt/software/matlab/bin/matlab -nodisplay -nosplash  -r 'B2_combine_individual_classifier( $type, $cell, $range, [1000 100], 50, 20, 250000  );exit'
+matlab -nodisplay -nosplash  -r 'B2_combine_individual_classifier( $type, $cell, $range, [1000 100], 50, 20, 250000  );exit'
 
 ########### CLEAN UP ###########
 # rm -rf *.tmp

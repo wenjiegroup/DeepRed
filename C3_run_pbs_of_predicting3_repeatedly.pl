@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use 5.010;
 
-my $indir="/home/ouyang/ShortProject/ShortProject1_DeepRed_from_LiuFeng/DeepRed_Code_from_LiuFeng";
+my $indir="./";#please change the directory to the location in your system
 my $subdir='Sequence_Pooled_for_Input_Data_chr';
 if(@ARGV)
 {
@@ -13,7 +13,7 @@ if(@ARGV)
 
 ## PBS参数
 my $batch="batch2";	# batch1 or batch2 or bigmem2
-my $ppn=1;	#ppn根据实际运行内存来设置，先测试一下看占多少资源。如果这里设置为4，那么刀片机每个节点最多跑6个任务。
+my $ppn=4;	#ppn根据实际运行内存来设置，先测试一下看占多少资源。如果这里设置为4，那么刀片机每个节点最多跑6个任务。
 
 
 ## 利用PBS调用MATLAB函数C1_ensemble_score1的参数

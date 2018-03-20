@@ -11,7 +11,8 @@
 # source /etc/profile.d/*.sh    
 
 # set workdir
-WORKDIR=/public2/home/liufeng/Work/RNA_editing_2015-11/Identification/Codes_and_Data_of_DeepRed
+#please change the directory to the location in your system
+WORKDIR=WorkDir_of_DeepRed
 ########### RUN ###########
 cd $WORKDIR
 #start application and log output using 'tee' in myapp_mpi.log

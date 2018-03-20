@@ -1,4 +1,6 @@
 function [ M2_e2, AUC_e2, AUC_e1, AUC_i1 ] = C2_ensemble_score2( type, training_cell, subdir, test_cell, range, sizes, num_epochs, num_partition, alpha)
+t0=clock
+tic
 %A4O_OUTPUT_SCORE Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -96,5 +98,20 @@ save( strcat(dir_out,'/M2_e2.',training_cell,'.',test_cell,'.s',size_flag,'_i',n
 
 
 
+%my change
+log_dir=strcat('/home/ouyang/ShortProject/ShortProject1_DeepRed_from_LiuFeng/2_Assessment_by_SEQC/runtime_compare/DeepRed/matlab_cputime','/Score_',type);
+if ~exist(log_dir,'dir')
+    mkdir(log_dir);
+end
+log_dir=strcat(log_dir,'/',test_cell);
+if ~exist(log_dir,'dir')
+    mkdir(log_dir);
 end
 
+fid=fopen(strcat(log_dir,'/M2_e2.',training_cell,'.',test_cell,'.s',size_flag,'_i',num2str(num_epochs),'.',flag,num2str(num_partition),'.',num2str(range),'bp.log'),'w+')
+%t1=cputime-t0
+t1=etime(clock,t0)
+T=strcat('tictoc_time:',num2str(toc),' etime:',num2str(t1))
+fprintf(fid,'%s\n',T)
+fclose(fid)
+end
